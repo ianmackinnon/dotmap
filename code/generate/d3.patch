@@ -1,0 +1,34 @@
+*** d3.orig.js	2014-06-04 20:31:03.738813087 +0200
+--- d3.patched.js	2014-06-04 20:43:35.886830072 +0200
+***************
+*** 6231,6236 ****
+--- 6231,6247 ----
+        }
+        return force;
+      };
++     // Patch start
++     force.update = function() {
++       var i, n = nodes.length, m = links.length;
++       distances = [];
++       if (typeof linkDistance === "function") for (i = 0; i < m; ++i) distances[i] = +linkDistance.call(this, links[i], i); else for (i = 0; i < m; ++i) distances[i] = linkDistance;
++       strengths = [];
++       if (typeof linkStrength === "function") for (i = 0; i < m; ++i) strengths[i] = +linkStrength.call(this, links[i], i); else for (i = 0; i < m; ++i) strengths[i] = linkStrength;
++       charges = [];
++       if (typeof charge === "function") for (i = 0; i < n; ++i) charges[i] = +charge.call(this, nodes[i], i); else for (i = 0; i < n; ++i) charges[i] = charge;
++     };
++     // Patch end
+      force.start = function() {
+        var i, n = nodes.length, m = links.length, w = size[0], h = size[1], neighbors, o;
+        for (i = 0; i < n; ++i) {
+***************
+*** 9252,9255 ****
+    } else {
+      this.d3 = d3;
+    }
+! }();
+\ No newline at end of file
+--- 9263,9266 ----
+    } else {
+      this.d3 = d3;
+    }
+! }();

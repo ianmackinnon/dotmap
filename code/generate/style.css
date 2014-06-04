@@ -1,0 +1,68 @@
+body,
+button {
+    font-family: mono;
+}
+
+#dotmap {
+}
+
+svg {
+    display: block;
+    margin: auto;
+    background: #eeeeff;
+}
+
+.node {
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1px;
+}
+
+.link {
+    stroke: #999;
+    stroke-opacity: .6;
+}
+
+.node text {
+    font: 12px mono;
+    line-height: 12px;
+    alignment-baseline: middle;
+    pointer-events: none;
+    font-weight: normal;
+    fill: #000;
+    opacity: 0.75;
+    stroke-opacity: 0;
+}
+
+
+
+form {
+    font-size: 12px;
+    display: block;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    height: 30px;
+}
+
+span {
+    float: left;
+    display: block;
+    width: 20%;
+}
+
+span.value,
+span.lo,
+span.hi {
+    text-align: center;
+    width: 10%;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    float: left;
+    display: block;
+    width: 50%;
+}
